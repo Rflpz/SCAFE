@@ -3,21 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sca;
+package controller;
 import java.sql.*;
-import model.*;
-
+import model.Usuario;
 /**
  *
  * @author Rflpz
  */
-public class SCA {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Usuario test = new Usuario();
+public class Login {
+    public Login(Usuario usuario){};
+    public boolean  crearConeccion(){
         try{
             String host = "jdbc:mysql://localhost:3306/SCA";
             String username = "root";
@@ -35,6 +30,6 @@ public class SCA {
         catch(SQLException err){
             System.out.println(err.getMessage());
         }
+        return true;
     }
-    
 }
