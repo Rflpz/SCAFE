@@ -11,17 +11,12 @@ import model.DBModel;
  *
  * @author Rflpz
  */
-public class Login {
+public class LoginController {
     private DBModel modelo = new DBModel();
-    public Login(){};
+    public LoginController(){};
     public boolean existeUsuario(Usuario usr) throws SQLException{
-        usr = modelo.buscarUsuario("jdbc:mysql://localhost:3306/SCA", "root", "", usr);
+        usr = modelo.findUser("jdbc:mysql://localhost:3306/SCA", "root", "", usr);
         System.out.println(usr.toString());
-        if(usr.getNombre() != null){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+        return usr.getNombre() != null;
+    }  
 }

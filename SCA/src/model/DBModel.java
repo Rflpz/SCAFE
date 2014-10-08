@@ -5,15 +5,16 @@
  */
 package model;
 import java.sql.*;
-import model.Usuario;
+import model.*;
 /**
  *
  * @author Rflpz
  */
 public class DBModel {
+    private String result;
     public DBModel(){}
     
-    public Usuario buscarUsuario(String host, String username, String password, Usuario fUsuario) throws SQLException{
+    public Usuario findUser(String host, String username, String password, Usuario fUsuario) throws SQLException{
         Usuario res = new Usuario();
         String idUsuario = Integer.toString(fUsuario.getIdUsuario());
         String contrasena = fUsuario.getContrasena();
@@ -22,11 +23,10 @@ public class DBModel {
         Connection con = DriverManager.getConnection(host, username, password);
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery(query);
-        
-        res = cargarInfoUsr(rs, res);
+        res = setInfoUser(rs, res);
         return res;
     }
-    private Usuario cargarInfoUsr(ResultSet rs,Usuario usr) throws SQLException{
+    private Usuario setInfoUser(ResultSet rs,Usuario usr) throws SQLException{
         while (rs.next()) {
                     usr.setNombre(rs.getString("nombre"));
                     usr.setApellidoP(rs.getString("apellidoP"));
@@ -42,4 +42,24 @@ public class DBModel {
         return usr;
     }
     
+    public String addClass(String host, String username, String password, Materia mat){
+        try{
+        Materia res = new Materia();
+        String idMateria = Integer.toString(mat.getIdMateria());
+        String nombre = mat.getNombreMateria();
+        String query = "INSERT Materias (idMateria, nombre) VALUES ('"+idMateria+"','"+ nombre+"')";
+        System.out.println(query);
+        Connection con = DriverManager.getConnection(host, username, password);
+        Statement stm = con.createStatement();
+        if(stm.execute(query)){
+            result = "done";
+        }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+            result =  e.getMessage();
+        }
+        return result;
+    }
 }
