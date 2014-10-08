@@ -6,6 +6,7 @@
 package sca;
 import java.sql.*;
 import model.*;
+import controller.Login;
 
 /**
  *
@@ -16,25 +17,17 @@ public class SCA {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException{
+        Login log = new Login();
         Usuario test = new Usuario();
-        try{
-            String host = "jdbc:mysql://localhost:3306/SCA";
-            String username = "root";
-            String password = "";
-                Connection con = DriverManager.getConnection( host, username, password );
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT nombre, apellidoP, apellidoM FROM USUARIOS");
-                while (rs.next()) {
-                    test.setNombre(rs.getString("nombre"));
-                    test.setApellidoP(rs.getString("apellidoP"));
-                    test.setApellidoM(rs.getString("apellidoM"));
-                    System.out.println(test.toString());
-                }                
+        test.setIdUsuario(1);
+        test.setContrasena("prueba");
+        if( log.existeUsuario(test)){
+            System.out.println("Existe");
         }
-        catch(SQLException err){
-            System.out.println(err.getMessage());
+        else{
+            System.out.println("No existe");
         }
-    }
+    }   
     
 }

@@ -6,30 +6,22 @@
 package controller;
 import java.sql.*;
 import model.Usuario;
+import model.DBModel;
 /**
  *
  * @author Rflpz
  */
 public class Login {
-    public Login(Usuario usuario){};
-    public boolean  crearConeccion(){
-        try{
-            String host = "jdbc:mysql://localhost:3306/SCA";
-            String username = "root";
-            String password = "";
-                Connection con = DriverManager.getConnection( host, username, password );
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT nombre, apellidoP, apellidoM FROM USUARIOS");
-                while (rs.next()) {
-                    test.setNombre(rs.getString("nombre"));
-                    test.setApellidoP(rs.getString("apellidoP"));
-                    test.setApellidoM(rs.getString("apellidoM"));
-                    System.out.println(test.toString());
-                }                
+    private DBModel modelo = new DBModel();
+    public Login(){};
+    public boolean existeUsuario(Usuario usr) throws SQLException{
+        usr = modelo.buscarUsuario("jdbc:mysql://localhost:3306/SCA", "root", "", usr);
+        System.out.println(usr.toString());
+        if(usr.getNombre() != null){
+            return true;
         }
-        catch(SQLException err){
-            System.out.println(err.getMessage());
+        else{
+            return false;
         }
-        return true;
     }
 }

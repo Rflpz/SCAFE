@@ -12,6 +12,7 @@ import java.sql.Blob;
  * @author Rflpz
  */
 public class Usuario {
+    private int idUsuario;
     private String nombre;
     private String apellidoP;
     private String apellidoM;
@@ -33,11 +34,15 @@ public class Usuario {
         this.tipo = 0;
         this.privilegios = 0;
         this.cargo = null;
+        this.idUsuario = 0;
     }
     
     //Get information from object USER
     public String getNombre(){
         return this.nombre;
+    }
+    public int getIdUsuario(){
+        return this.idUsuario;
     }
     public String getApellidoP(){
         return this.apellidoP;
@@ -92,12 +97,22 @@ public class Usuario {
     public void setPrivilegios(int privilegiosO){
         this.privilegios = privilegiosO;
     }
+    public void setIdUsuario(int idUsuarioO){
+        this.idUsuario = idUsuarioO;
+    }
     @Override
     public String toString(){
-        return this.nombre +
-                " " + 
+        return "Nombre: "+
+                this.nombre +
+                " apellido paterno: " + 
                 this.apellidoP +
-                " " + 
-                this.apellidoM;
+                " apellido materno: " + 
+                this.apellidoM +
+                " contraseña: " +
+                this.contrasena +
+                " correo: " + 
+                this.correo +
+                " cargo: "+
+                this.cargo;
     }
 }
