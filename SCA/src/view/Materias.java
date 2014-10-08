@@ -21,6 +21,8 @@ public class Materias extends javax.swing.JApplet {
      * Initializes the applet Materias
      */
     private DBModel modelo = new DBModel();
+    private  MateriasController matController = new MateriasController();
+    private Materia mat = new Materia();
     @Override
     public void init() {
         /* Set the Nimbus look and feel */
@@ -108,7 +110,6 @@ private void loadDataToTable() throws SQLException{
         jLabel2 = new javax.swing.JLabel();
         txtIdMateriaEditar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        btnEditar = new javax.swing.JButton();
 
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
@@ -140,6 +141,11 @@ private void loadDataToTable() throws SQLException{
         });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
 
         btnEliminar.setLabel("Eliminar");
         btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,13 +172,6 @@ private void loadDataToTable() throws SQLException{
 
         jLabel4.setText("idMateria *");
 
-        btnEditar.setLabel("Guardar edicion");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -180,30 +179,25 @@ private void loadDataToTable() throws SQLException{
             .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtIdMateriaEditar)
-                    .addComponent(txtIdMateria)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNombre)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdMateria, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(jLabel1)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,17 +215,15 @@ private void loadDataToTable() throws SQLException{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIdMateriaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -240,16 +232,10 @@ private void loadDataToTable() throws SQLException{
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
         if(validarTxtAgregar()){
             try{
-            System.out.println(this.txtIdMateria.getText());
-            String query = "INSERT Materias (idMateria, nombre) VALUES ('"+ this.txtIdMateria.getText()+"','"+ this.txtNombre.getText()+"')";
-            System.out.println(query);
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SCA", "root", "");
-            Statement stm = con.createStatement();
-            stm.execute(query);
-            loadDataToTable();
+                this.matController.insertMat(this.txtIdMateria.getText(), this.txtNombre.getText());
+                loadDataToTable();
             }
-            catch(SQLException e){
-                System.out.println(e.getMessage());
+            catch(SQLException e){ 
             }
         }
     }//GEN-LAST:event_btnAgregarMouseClicked
@@ -274,16 +260,10 @@ private void loadDataToTable() throws SQLException{
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
         if(validarTxtEdicion()){
             try{
-            System.out.println(this.txtIdMateria.getText());
-            String query = "DELETE FROM MATERIAS WHERE idMateria = " + this.txtIdMateriaEditar.getText();
-            System.out.println(query);
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SCA", "root", "");
-            Statement stm = con.createStatement();
-            stm.execute(query);
-            loadDataToTable();
+                matController.delMat(this.txtIdMateriaEditar.getText());
+                loadDataToTable();
             }
-            catch(SQLException e){
-                System.out.println(e.getMessage());
+            catch(SQLException e){ 
             }
         }
     }//GEN-LAST:event_btnEliminarMouseClicked
@@ -294,19 +274,35 @@ private void loadDataToTable() throws SQLException{
         }
         return status;
     }
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
-    }//GEN-LAST:event_btnEditarActionPerformed
-
     private void txtIdMateriaEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMateriaEditarMouseClicked
         this.txtIdMateriaEditar.setText(null);
     }//GEN-LAST:event_txtIdMateriaEditarMouseClicked
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+       if(!"".equals(this.txtIdMateria.getText())){
+           mat = matController.serachByIdMat(this.txtIdMateria.getText());
+           if(mat.getNombreMateria() != null){
+               this.txtNombre.setText(this.mat.getNombreMateria());
+           }
+           else{
+               System.out.println("No existe el id");
+           }
+       }
+       if(!"".equals(this.txtNombre.getText())){
+           mat = matController.serachByNameMat(this.txtNombre.getText());
+           if(mat.getNombreMateria() != null){
+               this.txtIdMateria.setText(Integer.toString(this.mat.getIdMateria()));
+           }
+           else{
+               System.out.println("No existe el nombre");
+           }
+       }
+    }//GEN-LAST:event_btnBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
