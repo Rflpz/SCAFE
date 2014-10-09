@@ -9,11 +9,20 @@ package view;
  *
  * @author Rflpz
  */
+import java.sql.*;
+import model.*;
+import controller.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 public class Usuarios extends javax.swing.JApplet {
 
+    
     /**
      * Initializes the applet Usuarios
      */
+    private DBModel modelo = new DBModel();
+    private  UsuariosController usrController = new UsuariosController();
     @Override
     public void init() {
         /* Set the Nimbus look and feel */
@@ -49,6 +58,11 @@ public class Usuarios extends javax.swing.JApplet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        try {
+            loadDataToTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,7 +80,7 @@ public class Usuarios extends javax.swing.JApplet {
         btnAgregar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtApellidoP = new javax.swing.JTextField();
@@ -105,13 +119,34 @@ public class Usuarios extends javax.swing.JApplet {
         getContentPane().add(jScrollPane1);
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseClicked(evt);
+            }
+        });
 
         btnBuscar.setLabel("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
 
         btnEliminar.setLabel("Eliminar");
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseClicked(evt);
+            }
+        });
 
-        btnGuardar.setLabel("Guardar");
+        btnActualizar.setText("Actualiar");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
 
+        txtNombre.setText("test");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -120,6 +155,7 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel3.setText("Nombre");
 
+        txtApellidoP.setText("test");
         txtApellidoP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoPActionPerformed(evt);
@@ -130,6 +166,7 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel6.setText("Materno");
 
+        txtApellidoM.setText("test");
         txtApellidoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoMActionPerformed(evt);
@@ -138,6 +175,7 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel2.setText("Apellidos");
 
+        txtContraseña.setText("test");
         txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraseñaActionPerformed(evt);
@@ -148,6 +186,7 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel5.setText("ID Usuario");
 
+        txtIdUsuario.setText("1");
         txtIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdUsuarioActionPerformed(evt);
@@ -156,12 +195,14 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel8.setText("Tipo");
 
+        txtTipo.setText("1");
         txtTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoActionPerformed(evt);
             }
         });
 
+        txtCargo.setText("test");
         txtCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCargoActionPerformed(evt);
@@ -174,12 +215,14 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel13.setText("Correo");
 
+        txtCorreo.setText("text@ucol.mx");
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
 
+        txtPrivilegios.setText("3");
         txtPrivilegios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrivilegiosActionPerformed(evt);
@@ -201,7 +244,7 @@ public class Usuarios extends javax.swing.JApplet {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -285,14 +328,37 @@ public class Usuarios extends javax.swing.JApplet {
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
-
+    private void loadDataToTable()throws SQLException{
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SCA", "root", "");
+    Statement stm = con.createStatement();  
+    String query = "SELECT * FROM USUARIOS";
+    ResultSet rs = stm.executeQuery(query);
+    ResultSetMetaData rsMeta = rs.getMetaData();
+    
+    int col = rsMeta.getColumnCount();
+    DefaultTableModel modeloTabla = new DefaultTableModel();
+    this.jTable1.setModel(modeloTabla);
+    
+    for(int x = 1; x < col; x++){
+        modeloTabla.addColumn(rsMeta.getColumnLabel(x));
+    }
+    
+    while(rs.next()){
+        Object[] fila = new Object[col];
+        
+        for(int y = 0; y < col; y++){
+            fila[y] = rs.getObject(y+1);
+        }
+        modeloTabla.addRow(fila);
+    }
+    }
     private void txtCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCargoActionPerformed
@@ -329,12 +395,75 @@ public class Usuarios extends javax.swing.JApplet {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrivilegiosActionPerformed
 
+    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+        
+        Usuario gUsuario = new Usuario();
+        gUsuario = setDataToUsr(gUsuario);
+        try{
+                this.usrController.insertUsrById(gUsuario);
+                loadDataToTable();
+            }
+            catch(SQLException e){ 
+            }
+    }//GEN-LAST:event_btnAgregarMouseClicked
 
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+        Usuario gUsuario = new Usuario();
+        gUsuario.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
+        try{
+                this.usrController.delUsrById(gUsuario);
+                loadDataToTable();
+            }
+            catch(SQLException e){ 
+            }
+    }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+        Usuario gUsuario = new Usuario();
+        gUsuario.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
+        gUsuario = this.usrController.searchUsrById(gUsuario);
+        setInfoViewFromUsr(gUsuario);
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+        Usuario gUsuario = new Usuario();
+        gUsuario = setDataToUsr(gUsuario);
+        try{
+                this.usrController.updUsrById(gUsuario);
+                loadDataToTable();
+            }
+            catch(SQLException e){ 
+            }
+    }//GEN-LAST:event_btnActualizarMouseClicked
+    private Usuario setDataToUsr(Usuario usr){
+        usr.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
+        usr.setNombre(this.txtNombre.getText());
+        usr.setApellidoP(this.txtApellidoP.getText());
+        usr.setApellidoM(this.txtApellidoM.getText());
+        usr.setCargo(this.txtCargo.getText());
+        usr.setContrasena(this.txtContraseña.getText());
+        usr.setPrivilegios(Integer.parseInt(this.txtPrivilegios.getText()));
+        usr.setTipo(Integer.parseInt(this.txtTipo.getText()));
+        usr.setCorreo(this.txtCorreo.getText());
+        usr.setFotografia(null);
+        return usr;
+    }
+    private void setInfoViewFromUsr(Usuario usr){
+        this.txtApellidoM.setText(usr.getApellidoM());
+        this.txtApellidoP.setText(usr.getApellidoP());
+        this.txtCargo.setText(usr.getCargo());
+        this.txtContraseña.setText(usr.getContrasena());
+        this.txtCorreo.setText(usr.getCorreo());
+        this.txtIdUsuario.setText(Integer.toString(usr.getIdUsuario()));
+        this.txtNombre.setText(usr.getNombre());
+        this.txtPrivilegios.setText(Integer.toString(usr.getprivilegios()));
+        this.txtTipo.setText(Integer.toString(usr.getTipo()));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
