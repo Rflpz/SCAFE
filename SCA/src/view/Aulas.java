@@ -14,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rflpz
  */
-public class Grupos extends javax.swing.JApplet {
 
-    /**
-     * Initializes the applet Grupos
-     */
+public class Aulas extends javax.swing.JApplet {
+
     private DBModel modelo = new DBModel();
-    private GrupoController grpController = new GrupoController();
-    
+    private AulaController aulController = new AulaController();
+    /**
+     * Initializes the applet Aulas
+     */
     @Override
     public void init() {
         /* Set the Nimbus look and feel */
@@ -37,13 +37,13 @@ public class Grupos extends javax.swing.JApplet {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Grupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aulas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Grupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aulas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Grupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aulas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Grupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aulas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -62,8 +62,7 @@ public class Grupos extends javax.swing.JApplet {
             loadDataToTable();
         } catch (SQLException ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-        
+        } 
     }
 
     /**
@@ -78,18 +77,16 @@ public class Grupos extends javax.swing.JApplet {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        btnAgregar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtIdGrupo = new javax.swing.JTextField();
+        txtIdAula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        cmbCarrera = new javax.swing.JComboBox();
-        btnAgregar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        cmbGrado = new javax.swing.JComboBox();
+        cmbTipo = new javax.swing.JComboBox();
 
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
@@ -108,27 +105,10 @@ public class Grupos extends javax.swing.JApplet {
 
         getContentPane().add(jScrollPane1);
 
-        jLabel1.setText("idGrupo");
-
-        jLabel2.setText("Nombre grupo");
-
-        jLabel3.setText("Grado");
-
-        jLabel4.setText("Carrera");
-
-        cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         btnAgregar.setText("Agregar");
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAgregarMouseClicked(evt);
-            }
-        });
-
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
             }
         });
 
@@ -146,61 +126,69 @@ public class Grupos extends javax.swing.JApplet {
             }
         });
 
-        cmbGrado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnEliminar.setLabel("Eliminar");
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setText("ID Aula");
+
+        jLabel2.setText("Nombre");
+
+        jLabel3.setText("Tipo");
+
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdGrupo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(16, 16, 16)
-                        .addComponent(cmbGrado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbCarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdAula))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNombre))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtIdGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdAula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cmbGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cmbCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,10 +201,27 @@ public class Grupos extends javax.swing.JApplet {
 
         getContentPane().add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
-private void loadDataToTable()throws SQLException{
+
+    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+        Aula aul = new Aula();
+        aul = setDataToAul(aul);
+        try{
+            this.aulController.insertAulById(aul);
+            loadDataToTable();
+        }
+        catch(SQLException e){
+        }
+    }//GEN-LAST:event_btnAgregarMouseClicked
+    private Aula setDataToAul(Aula aul){
+        aul.setIdAula(Integer.parseInt(this.txtIdAula.getText()));
+        aul.setNombre(this.txtNombre.getText());
+        aul.setTipo(String.valueOf(this.cmbTipo.getSelectedItem()));
+        return aul;
+    }
+    private void loadDataToTable()throws SQLException{
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SCA", "root", "");
     Statement stm = con.createStatement();  
-    String query = "SELECT * FROM GRUPOS";
+    String query = "SELECT * FROM AULAS";
     ResultSet rs = stm.executeQuery(query);
     ResultSetMetaData rsMeta = rs.getMetaData();
     
@@ -238,121 +243,67 @@ private void loadDataToTable()throws SQLException{
     }
     }
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
-        Grupo grp = new Grupo();
-        grp = setDataToGrp(grp);
-        try{
-            this.grpController.insertGrpById(grp);
-            loadDataToTable();
-        }
-        catch(SQLException e){
-        }
-    }//GEN-LAST:event_btnAgregarMouseClicked
-    private Grupo setDataToGrp(Grupo grp){
-        grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
-        grp.setNombreGrupo(this.txtNombre.getText());
-        grp.setGrado(String.valueOf(this.cmbGrado.getSelectedItem()));
-        grp.setCarrera(String.valueOf(this.cmbCarrera.getSelectedItem()));
-        return grp;
-    }
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
-        Grupo grp = new Grupo();
-        grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
-        try{
-            this.grpController.delGrpById(grp);
-            loadDataToTable();
-        }
-        catch(SQLException e){
-        }
-    }//GEN-LAST:event_btnEliminarMouseClicked
-
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        Grupo grp = new Grupo();
+        Aula aul = new Aula();
         try{
-            grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
-            grp = this.grpController.searchGrpById(grp);
-            setInfoViewFromGrp(grp);
+            aul.setIdAula(Integer.parseInt(this.txtIdAula.getText()));
+            aul = this.aulController.searchAulById(aul);
+            setInfoViewFromGrp(aul);
         }
         catch(Exception e){
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnBuscarMouseClicked
-    private void setInfoViewFromGrp(Grupo grp){
-        this.txtIdGrupo.setText(Integer.toString(grp.getIdGrupo()));
-        this.txtNombre.setText(grp.getNombre());
-        int selCmbCarrera = 0;
-        switch(grp.getCarrera()){
-            case "INGENIERIA DE SOFTWARE":{
-                selCmbCarrera = 0;
+    private void setInfoViewFromGrp(Aula aul){
+        this.txtIdAula.setText(Integer.toString(aul.getIdAula()));
+        this.txtNombre.setText(aul.getNombre());
+        int cmbOpcion = 0;
+        switch(aul.getTipo()){
+            case "AUDITORIO":{
+                cmbOpcion = 0;
                 break;
             }
-            case "INGENIERIA EN TELEMATICA":{
-                selCmbCarrera = 1;
+            case "SALON":{
+                cmbOpcion = 1;
                 break;
             }
-            default:
+            case "LABORATORIO":{
+                cmbOpcion = 2;
                 break;
+            }
+            default:{
+                cmbOpcion = 0;
+                break;
+            }
         }
-        this.cmbCarrera.setSelectedIndex(selCmbCarrera);
-        
-        int selCmbGrado = 0;
-        switch(grp.getGrado()){
-            case "1":{
-                selCmbCarrera = 0;
-                break;
-            }
-            case "2":{
-                selCmbCarrera = 1;
-                break;
-            }
-            case "3":{
-                selCmbCarrera = 2;
-                break;
-            }
-            case "4":{
-                selCmbCarrera = 3;
-                break;
-            }
-            case "5":{
-                selCmbCarrera = 4;
-                break;
-            }
-            case "6":{
-                selCmbCarrera = 5;
-                break;
-            }
-            case "7":{
-                selCmbCarrera = 6;
-                break;
-            }
-            case "8":{
-                selCmbCarrera = 7;
-                break;
-            }
-            default:
-                break;
-        }
-        this.cmbGrado.setSelectedIndex(selCmbCarrera);
+        this.cmbTipo.setSelectedItem(cmbOpcion);
     }
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
-        Grupo grp = new Grupo();
-        grp = setDataToGrp(grp);
+        Aula aul = new Aula();
+        aul = setDataToAul(aul);
         try{
-            this.grpController.updGrpById(grp);
+            this.aulController.updAulById(aul);
             loadDataToTable();
         }
         catch(SQLException e){
         }
     }//GEN-LAST:event_btnActualizarMouseClicked
-    private void addItemsComobox(){
-        this.cmbCarrera.removeAllItems();
-        this.cmbCarrera.addItem("INGENIERIA DE SOFTWARE");
-        this.cmbCarrera.addItem("INGENIERIA EN TELEMATICA");
-        
-        this.cmbGrado.removeAllItems();
-        for(int i = 1 ; i< 9; i++){
-            this.cmbGrado.addItem(i);
+
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+        Aula aul = new Aula();
+        aul.setIdAula(Integer.parseInt(this.txtIdAula.getText()));
+        try{
+            this.aulController.delAulById(aul);
+            loadDataToTable();
         }
+        catch(SQLException e){
+        }
+    }//GEN-LAST:event_btnEliminarMouseClicked
+    private void addItemsComobox(){
+        this.cmbTipo.removeAllItems();
+        this.cmbTipo.addItem("AUDITORIO");
+        this.cmbTipo.addItem("SALON");
+        this.cmbTipo.addItem("LABORATORIO");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -360,16 +311,14 @@ private void loadDataToTable()throws SQLException{
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JComboBox cmbCarrera;
-    private javax.swing.JComboBox cmbGrado;
+    private javax.swing.JComboBox cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtIdGrupo;
+    private javax.swing.JTextField txtIdAula;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

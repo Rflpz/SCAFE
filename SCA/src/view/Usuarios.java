@@ -139,7 +139,7 @@ public class Usuarios extends javax.swing.JApplet {
             }
         });
 
-        btnActualizar.setText("Actualiar");
+        btnActualizar.setText("Actualizar");
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnActualizarMouseClicked(evt);
