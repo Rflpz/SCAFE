@@ -73,7 +73,7 @@ private void loadDataToTable() throws SQLException{
     
     int col = rsMeta.getColumnCount();
     DefaultTableModel modeloTabla = new DefaultTableModel();
-    this.jTable1.setModel(modeloTabla);
+    this.jTableMaterias.setModel(modeloTabla);
     
     for(int x = 1; x < col+1; x++){
         modeloTabla.addColumn(rsMeta.getColumnLabel(x));
@@ -98,14 +98,14 @@ private void loadDataToTable() throws SQLException{
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableMaterias = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        btnAgregar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        btnAgregarMateria = new javax.swing.JButton();
+        btnBuscarMateria = new javax.swing.JButton();
+        btnEliminarMateria = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         txtIdMateria = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreMateria = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtIdMateriaEditar = new javax.swing.JTextField();
@@ -113,7 +113,7 @@ private void loadDataToTable() throws SQLException{
 
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -124,39 +124,45 @@ private void loadDataToTable() throws SQLException{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableMaterias);
 
         getContentPane().add(jScrollPane1);
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarMateria.setText("Agregar");
+        btnAgregarMateria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
+                btnAgregarMateriaMouseClicked(evt);
             }
         });
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnAgregarMateriaActionPerformed(evt);
             }
         });
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarMateria.setText("Buscar");
+        btnBuscarMateria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
+                btnBuscarMateriaMouseClicked(evt);
             }
         });
 
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarMateria.setLabel("Eliminar");
+        btnEliminarMateria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
+                btnEliminarMateriaMouseClicked(evt);
             }
         });
 
         txtIdMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdMateriaActionPerformed(evt);
+            }
+        });
+
+        txtNombreMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreMateriaActionPerformed(evt);
             }
         });
 
@@ -185,10 +191,10 @@ private void loadDataToTable() throws SQLException{
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdMateria, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAgregarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnBuscarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombreMateria, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,7 +203,7 @@ private void loadDataToTable() throws SQLException{
                                         .addGap(6, 6, 6)
                                         .addComponent(jLabel1)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEliminarMateria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -210,11 +216,11 @@ private void loadDataToTable() throws SQLException{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -222,29 +228,29 @@ private void loadDataToTable() throws SQLException{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIdMateriaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+    private void btnAgregarMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMateriaMouseClicked
         if(validarTxtAgregar()){
             try{
-                this.matController.insertMat(this.txtIdMateria.getText(), this.txtNombre.getText());
+                this.matController.insertMat(this.txtIdMateria.getText(), this.txtNombreMateria.getText());
                 loadDataToTable();
             }
             catch(SQLException e){ 
             }
         }
-    }//GEN-LAST:event_btnAgregarMouseClicked
+    }//GEN-LAST:event_btnAgregarMateriaMouseClicked
     private boolean validarTxtAgregar(){
         boolean status = true;
             if(txtIdMateria.getText() == null){
                 status = false;
             }
-            if(txtNombre.getText() == null){
+            if(txtNombreMateria.getText() == null){
                 status = false;
             }
         return status;
@@ -253,11 +259,11 @@ private void loadDataToTable() throws SQLException{
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdMateriaActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMateriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnAgregarMateriaActionPerformed
 
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+    private void btnEliminarMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMateriaMouseClicked
         if(validarTxtEdicion()){
             try{
                 matController.delMat(this.txtIdMateriaEditar.getText());
@@ -266,7 +272,7 @@ private void loadDataToTable() throws SQLException{
             catch(SQLException e){ 
             }
         }
-    }//GEN-LAST:event_btnEliminarMouseClicked
+    }//GEN-LAST:event_btnEliminarMateriaMouseClicked
     private boolean validarTxtEdicion(){
         boolean status = true;
         if(this.txtIdMateriaEditar == null){
@@ -278,18 +284,18 @@ private void loadDataToTable() throws SQLException{
         this.txtIdMateriaEditar.setText(null);
     }//GEN-LAST:event_txtIdMateriaEditarMouseClicked
 
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+    private void btnBuscarMateriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMateriaMouseClicked
        if(!"".equals(this.txtIdMateria.getText())){
            mat = matController.serachByIdMat(this.txtIdMateria.getText());
            if(mat.getNombreMateria() != null){
-               this.txtNombre.setText(this.mat.getNombreMateria());
+               this.txtNombreMateria.setText(this.mat.getNombreMateria());
            }
            else{
                System.out.println("No existe el id");
            }
        }
-       if(!"".equals(this.txtNombre.getText())){
-           mat = matController.serachByNameMat(this.txtNombre.getText());
+       if(!"".equals(this.txtNombreMateria.getText())){
+           mat = matController.serachByNameMat(this.txtNombreMateria.getText());
            if(mat.getNombreMateria() != null){
                this.txtIdMateria.setText(Integer.toString(this.mat.getIdMateria()));
            }
@@ -297,22 +303,26 @@ private void loadDataToTable() throws SQLException{
                System.out.println("No existe el nombre");
            }
        }
-    }//GEN-LAST:event_btnBuscarMouseClicked
+    }//GEN-LAST:event_btnBuscarMateriaMouseClicked
+
+    private void txtNombreMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnAgregarMateria;
+    private javax.swing.JButton btnBuscarMateria;
+    private javax.swing.JButton btnEliminarMateria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableMaterias;
     private javax.swing.JTextField txtIdMateria;
     private javax.swing.JTextField txtIdMateriaEditar;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreMateria;
     // End of variables declaration//GEN-END:variables
 }

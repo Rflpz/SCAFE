@@ -80,15 +80,15 @@ public class Grupos extends javax.swing.JApplet {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtIdGrupo = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreGrupo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cmbCarrera = new javax.swing.JComboBox();
-        btnAgregar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
+        btnAgregarGrupo = new javax.swing.JButton();
+        btnEliminarGrupo = new javax.swing.JButton();
+        btnBuscarGrupo = new javax.swing.JButton();
+        btnActualizarGrupo = new javax.swing.JButton();
         cmbGrado = new javax.swing.JComboBox();
 
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -126,31 +126,31 @@ public class Grupos extends javax.swing.JApplet {
 
         cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarGrupo.setText("Agregar");
+        btnAgregarGrupo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
+                btnAgregarGrupoMouseClicked(evt);
             }
         });
 
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarGrupo.setLabel("Eliminar");
+        btnEliminarGrupo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
+                btnEliminarGrupoMouseClicked(evt);
             }
         });
 
-        btnBuscar.setLabel("Buscar");
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarGrupo.setLabel("Buscar");
+        btnBuscarGrupo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
+                btnBuscarGrupoMouseClicked(evt);
             }
         });
 
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnActualizarGrupo.setText("Actualizar");
+        btnActualizarGrupo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizarMouseClicked(evt);
+                btnActualizarGrupoMouseClicked(evt);
             }
         });
 
@@ -170,7 +170,7 @@ public class Grupos extends javax.swing.JApplet {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
+                        .addComponent(txtNombreGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(16, 16, 16)
@@ -181,12 +181,12 @@ public class Grupos extends javax.swing.JApplet {
                         .addComponent(cmbCarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAgregarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnBuscarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnActualizarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,7 +199,7 @@ public class Grupos extends javax.swing.JApplet {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -210,12 +210,12 @@ public class Grupos extends javax.swing.JApplet {
                     .addComponent(cmbCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -246,7 +246,7 @@ private void loadDataToTable()throws SQLException{
     }
 }
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+    private void btnAgregarGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGrupoMouseClicked
         Grupo grp = new Grupo();
         grp = setDataToGrp(grp);
         try{
@@ -255,15 +255,15 @@ private void loadDataToTable()throws SQLException{
         }
         catch(SQLException e){
         }
-    }//GEN-LAST:event_btnAgregarMouseClicked
+    }//GEN-LAST:event_btnAgregarGrupoMouseClicked
     private Grupo setDataToGrp(Grupo grp){
         grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
-        grp.setNombreGrupo(this.txtNombre.getText());
+        grp.setNombreGrupo(this.txtNombreGrupo.getText());
         grp.setGrado(String.valueOf(this.cmbGrado.getSelectedItem()));
         grp.setCarrera(String.valueOf(this.cmbCarrera.getSelectedItem()));
         return grp;
     }
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+    private void btnEliminarGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarGrupoMouseClicked
         Grupo grp = new Grupo();
         grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
         try{
@@ -272,9 +272,9 @@ private void loadDataToTable()throws SQLException{
         }
         catch(SQLException e){
         }
-    }//GEN-LAST:event_btnEliminarMouseClicked
+    }//GEN-LAST:event_btnEliminarGrupoMouseClicked
 
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+    private void btnBuscarGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarGrupoMouseClicked
         Grupo grp = new Grupo();
         try{
             grp.setIdGrupo(Integer.parseInt(this.txtIdGrupo.getText()));
@@ -284,10 +284,10 @@ private void loadDataToTable()throws SQLException{
         catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscarMouseClicked
+    }//GEN-LAST:event_btnBuscarGrupoMouseClicked
     private void setInfoViewFromGrp(Grupo grp){
         this.txtIdGrupo.setText(Integer.toString(grp.getIdGrupo()));
-        this.txtNombre.setText(grp.getNombre());
+        this.txtNombreGrupo.setText(grp.getNombre());
         int selCmbCarrera = 0;
         switch(grp.getCarrera()){
             case "INGENIERIA DE SOFTWARE":{
@@ -342,7 +342,7 @@ private void loadDataToTable()throws SQLException{
         }
         this.cmbGrado.setSelectedIndex(selCmbCarrera);
     }
-    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+    private void btnActualizarGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarGrupoMouseClicked
         Grupo grp = new Grupo();
         grp = setDataToGrp(grp);
         try{
@@ -351,7 +351,7 @@ private void loadDataToTable()throws SQLException{
         }
         catch(SQLException e){
         }
-    }//GEN-LAST:event_btnActualizarMouseClicked
+    }//GEN-LAST:event_btnActualizarGrupoMouseClicked
     private void addItemsComobox(){
         this.cmbCarrera.removeAllItems();
         this.cmbCarrera.addItem("INGENIERIA DE SOFTWARE");
@@ -364,10 +364,10 @@ private void loadDataToTable()throws SQLException{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnActualizarGrupo;
+    private javax.swing.JButton btnAgregarGrupo;
+    private javax.swing.JButton btnBuscarGrupo;
+    private javax.swing.JButton btnEliminarGrupo;
     private javax.swing.JComboBox cmbCarrera;
     private javax.swing.JComboBox cmbGrado;
     private javax.swing.JLabel jLabel1;
@@ -378,6 +378,6 @@ private void loadDataToTable()throws SQLException{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtIdGrupo;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreGrupo;
     // End of variables declaration//GEN-END:variables
 }

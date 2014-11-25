@@ -57,7 +57,7 @@ public class Horarios extends javax.swing.JApplet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        addItemsComobox();
+        addItemsComoboxHorario();
         try {
             loadDataToTable();
         } catch (SQLException ex) {
@@ -76,8 +76,8 @@ public class Horarios extends javax.swing.JApplet {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         hTable = new javax.swing.JTable();
-        btnAgregar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        btnAgregarHorario = new javax.swing.JButton();
+        btnEliminarHorario = new javax.swing.JButton();
         cmbMinutoInicio = new javax.swing.JComboBox();
         cmbHoraInicio = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -102,17 +102,17 @@ public class Horarios extends javax.swing.JApplet {
         ));
         jScrollPane1.setViewportView(hTable);
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarHorario.setText("Agregar");
+        btnAgregarHorario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
+                btnAgregarHorarioMouseClicked(evt);
             }
         });
 
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarHorario.setLabel("Eliminar");
+        btnEliminarHorario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
+                btnEliminarHorarioMouseClicked(evt);
             }
         });
 
@@ -159,9 +159,9 @@ public class Horarios extends javax.swing.JApplet {
                             .addComponent(cmbMinutoInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbHoraTermino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEliminarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -191,8 +191,8 @@ public class Horarios extends javax.swing.JApplet {
                             .addComponent(cmbMinutoTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAgregarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(177, 177, 177))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +200,7 @@ public class Horarios extends javax.swing.JApplet {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+    private void btnAgregarHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarHorarioMouseClicked
         Horario h = new Horario();
          h = setDataToHr(h);
          this.hrController.addHr(h);
@@ -208,9 +208,9 @@ public class Horarios extends javax.swing.JApplet {
              loadDataToTable();
          }
          catch(SQLException e){}
-    }//GEN-LAST:event_btnAgregarMouseClicked
+    }//GEN-LAST:event_btnAgregarHorarioMouseClicked
 
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+    private void btnEliminarHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarHorarioMouseClicked
         Horario h = new Horario();
          h = setDataToHr(h);
          this.hrController.delHr(h);
@@ -218,7 +218,7 @@ public class Horarios extends javax.swing.JApplet {
              loadDataToTable();
          }
          catch(SQLException e){}
-    }//GEN-LAST:event_btnEliminarMouseClicked
+    }//GEN-LAST:event_btnEliminarHorarioMouseClicked
     private Horario setDataToHr(Horario hr){
         String hrInicio, hrTermino;
         hr.setIdHorario(Integer.parseInt(this.txtIdHorario.getText()));
@@ -228,7 +228,7 @@ public class Horarios extends javax.swing.JApplet {
         hr.setHoraTermino(hrTermino);
         return hr;
     }
-    private void addItemsComobox(){
+    private void addItemsComoboxHorario(){
         this.cmbHoraInicio.removeAllItems();
         this.cmbHoraTermino.removeAllItems();
         this.cmbMinutoInicio.removeAllItems();
@@ -280,8 +280,8 @@ private void loadDataToTable()throws SQLException{
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnAgregarHorario;
+    private javax.swing.JButton btnEliminarHorario;
     private javax.swing.JComboBox cmbHoraInicio;
     private javax.swing.JComboBox cmbHoraTermino;
     private javax.swing.JComboBox cmbMinutoInicio;

@@ -5,7 +5,7 @@
  */
 package sca;
 import java.sql.*;
-import model.*;
+
 
 
 /**
@@ -18,27 +18,16 @@ public class SCA {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException{
-        /*Login log = new Login();
-        Usuario test = new Usuario();
-        test.setIdUsuario(9);
-        test.setContrasena("Aliquam LLC");
-        if( log.existeUsuario(test)){
-            System.out.println("Existe");
-        }
-        else{
-            System.out.println("No existe");
-        }*/
-        DBModel dataModel = new DBModel ();
-        Materia mt = new Materia();
-        mt.setIdMateria(674);
-        mt.setNombre("PD");
-        String result = dataModel.addClass("jdbc:mysql://localhost:3306/SCA", "root", "", mt);
-        if(result != "done" ){
-            System.out.println("Materia no agregada");
-        }
-        else{
-            System.out.println("Materia agregada");
-        }
+        SCAdministrador theApplet = new SCAdministrador();
+        theApplet.init();   // invoke the applet's init() method
+         theApplet.start();  // starts the applet
+ 
+         // Create a window (JFrame) and make applet the content pane.
+          javax.swing.JFrame window = new javax.swing.JFrame("Panel de administracion");
+          window.setContentPane(theApplet);
+          window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+          window.pack();          
+          window.setVisible(true); 
     }   
     
 }

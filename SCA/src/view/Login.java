@@ -80,7 +80,7 @@ public class Login extends javax.swing.JApplet {
 
         jLabel2.setText("Contraseña");
 
-        jButton1.setText("Iniciar sesion");
+        jButton1.setText("Tomar asistencia");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -148,10 +148,10 @@ public class Login extends javax.swing.JApplet {
             usr.setIdUsuario(Integer.parseInt(jTextField1.getText()));
             usr.setContrasena(jPasswordField1.getText());
             if( log.existeUsuario(usr)){
-                System.out.println("Abrir otro form");
+                System.out.println("Toma asistencia");
             }
             else{
-                System.out.println("No abrir form");
+                System.out.println("No toma asistencia");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

@@ -75,35 +75,35 @@ public class Usuarios extends javax.swing.JApplet {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableUsuarios = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        btnAgregar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        txtNombre = new javax.swing.JTextField();
+        btnAgregarUsuario = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
+        btnActualizarUsuario = new javax.swing.JButton();
+        txtNombreUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtApellidoP = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtApellidoM = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtIdUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtTipo = new javax.swing.JTextField();
-        txtCargo = new javax.swing.JTextField();
+        txtTipoUsuario = new javax.swing.JTextField();
+        txtCargoUsuario = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        txtPrivilegios = new javax.swing.JTextField();
+        txtCorreoUsuario = new javax.swing.JTextField();
+        txtPrivilegiosUsuario = new javax.swing.JTextField();
 
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,42 +114,42 @@ public class Usuarios extends javax.swing.JApplet {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableUsuarios);
 
         getContentPane().add(jScrollPane1);
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarUsuario.setText("Agregar");
+        btnAgregarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
+                btnAgregarUsuarioMouseClicked(evt);
             }
         });
 
-        btnBuscar.setLabel("Buscar");
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarUsuario.setLabel("Buscar");
+        btnBuscarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
+                btnBuscarUsuarioMouseClicked(evt);
             }
         });
 
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminarUsuario.setLabel("Eliminar");
+        btnEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
+                btnEliminarUsuarioMouseClicked(evt);
             }
         });
 
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnActualizarUsuario.setText("Actualizar");
+        btnActualizarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizarMouseClicked(evt);
+                btnActualizarUsuarioMouseClicked(evt);
             }
         });
 
-        txtNombre.setText("test");
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreUsuario.setText("test");
+        txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreUsuarioActionPerformed(evt);
             }
         });
 
@@ -175,10 +175,10 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel2.setText("Apellidos");
 
-        txtContraseña.setText("test");
-        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+        txtContrasena.setText("test");
+        txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraseñaActionPerformed(evt);
+                txtContrasenaActionPerformed(evt);
             }
         });
 
@@ -195,17 +195,17 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel8.setText("Tipo");
 
-        txtTipo.setText("1");
-        txtTipo.addActionListener(new java.awt.event.ActionListener() {
+        txtTipoUsuario.setText("1");
+        txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoActionPerformed(evt);
+                txtTipoUsuarioActionPerformed(evt);
             }
         });
 
-        txtCargo.setText("test");
-        txtCargo.addActionListener(new java.awt.event.ActionListener() {
+        txtCargoUsuario.setText("test");
+        txtCargoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCargoActionPerformed(evt);
+                txtCargoUsuarioActionPerformed(evt);
             }
         });
 
@@ -215,17 +215,17 @@ public class Usuarios extends javax.swing.JApplet {
 
         jLabel13.setText("Correo");
 
-        txtCorreo.setText("text@ucol.mx");
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreoUsuario.setText("text@ucol.mx");
+        txtCorreoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
+                txtCorreoUsuarioActionPerformed(evt);
             }
         });
 
-        txtPrivilegios.setText("3");
-        txtPrivilegios.addActionListener(new java.awt.event.ActionListener() {
+        txtPrivilegiosUsuario.setText("3");
+        txtPrivilegiosUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrivilegiosActionPerformed(evt);
+                txtPrivilegiosUsuarioActionPerformed(evt);
             }
         });
 
@@ -239,12 +239,12 @@ public class Usuarios extends javax.swing.JApplet {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -252,7 +252,7 @@ public class Usuarios extends javax.swing.JApplet {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseña)
+                            .addComponent(txtContrasena)
                             .addComponent(txtApellidoP)
                             .addComponent(txtApellidoM)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -262,23 +262,23 @@ public class Usuarios extends javax.swing.JApplet {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdUsuario)
-                            .addComponent(txtNombre)))
+                            .addComponent(txtNombreUsuario)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCargo)
-                            .addComponent(txtTipo)))
+                            .addComponent(txtCargoUsuario)
+                            .addComponent(txtTipoUsuario)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCorreo)
-                            .addComponent(txtPrivilegios))))
+                            .addComponent(txtCorreoUsuario)
+                            .addComponent(txtPrivilegiosUsuario))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -291,7 +291,7 @@ public class Usuarios extends javax.swing.JApplet {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -305,31 +305,31 @@ public class Usuarios extends javax.swing.JApplet {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCargoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtPrivilegios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrivilegiosUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -344,7 +344,7 @@ public class Usuarios extends javax.swing.JApplet {
     
     int col = rsMeta.getColumnCount();
     DefaultTableModel modeloTabla = new DefaultTableModel();
-    this.jTable1.setModel(modeloTabla);
+    this.jTableUsuarios.setModel(modeloTabla);
     
     for(int x = 1; x < col; x++){
         modeloTabla.addColumn(rsMeta.getColumnLabel(x));
@@ -359,21 +359,21 @@ public class Usuarios extends javax.swing.JApplet {
         modeloTabla.addRow(fila);
     }
     }
-    private void txtCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoActionPerformed
+    private void txtCargoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCargoActionPerformed
+    }//GEN-LAST:event_txtCargoUsuarioActionPerformed
 
-    private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
+    private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoActionPerformed
+    }//GEN-LAST:event_txtTipoUsuarioActionPerformed
 
     private void txtIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdUsuarioActionPerformed
 
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+    private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
+    }//GEN-LAST:event_txtContrasenaActionPerformed
 
     private void txtApellidoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoMActionPerformed
         // TODO add your handling code here:
@@ -383,19 +383,19 @@ public class Usuarios extends javax.swing.JApplet {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoPActionPerformed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+    private void txtCorreoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
+    }//GEN-LAST:event_txtCorreoUsuarioActionPerformed
 
-    private void txtPrivilegiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrivilegiosActionPerformed
+    private void txtPrivilegiosUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrivilegiosUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrivilegiosActionPerformed
+    }//GEN-LAST:event_txtPrivilegiosUsuarioActionPerformed
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+    private void btnAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioMouseClicked
         
         Usuario gUsuario = new Usuario();
         gUsuario = setDataToUsr(gUsuario);
@@ -405,9 +405,9 @@ public class Usuarios extends javax.swing.JApplet {
             }
             catch(SQLException e){ 
             }
-    }//GEN-LAST:event_btnAgregarMouseClicked
+    }//GEN-LAST:event_btnAgregarUsuarioMouseClicked
 
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+    private void btnEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioMouseClicked
         Usuario gUsuario = new Usuario();
         gUsuario.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
         try{
@@ -416,16 +416,16 @@ public class Usuarios extends javax.swing.JApplet {
             }
             catch(SQLException e){ 
             }
-    }//GEN-LAST:event_btnEliminarMouseClicked
+    }//GEN-LAST:event_btnEliminarUsuarioMouseClicked
 
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+    private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
         Usuario gUsuario = new Usuario();
         gUsuario.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
         gUsuario = this.usrController.searchUsrById(gUsuario);
         setInfoViewFromUsr(gUsuario);
-    }//GEN-LAST:event_btnBuscarMouseClicked
+    }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 
-    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+    private void btnActualizarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioMouseClicked
         Usuario gUsuario = new Usuario();
         gUsuario = setDataToUsr(gUsuario);
         try{
@@ -434,36 +434,36 @@ public class Usuarios extends javax.swing.JApplet {
             }
             catch(SQLException e){ 
             }
-    }//GEN-LAST:event_btnActualizarMouseClicked
+    }//GEN-LAST:event_btnActualizarUsuarioMouseClicked
     private Usuario setDataToUsr(Usuario usr){
         usr.setIdUsuario(Integer.parseInt(this.txtIdUsuario.getText()));
-        usr.setNombre(this.txtNombre.getText());
+        usr.setNombre(this.txtNombreUsuario.getText());
         usr.setApellidoP(this.txtApellidoP.getText());
         usr.setApellidoM(this.txtApellidoM.getText());
-        usr.setCargo(this.txtCargo.getText());
-        usr.setContrasena(this.txtContraseña.getText());
-        usr.setPrivilegios(Integer.parseInt(this.txtPrivilegios.getText()));
-        usr.setTipo(Integer.parseInt(this.txtTipo.getText()));
-        usr.setCorreo(this.txtCorreo.getText());
+        usr.setCargo(this.txtCargoUsuario.getText());
+        usr.setContrasena(this.txtContrasena.getText());
+        usr.setPrivilegios(Integer.parseInt(this.txtPrivilegiosUsuario.getText()));
+        usr.setTipo(Integer.parseInt(this.txtTipoUsuario.getText()));
+        usr.setCorreo(this.txtCorreoUsuario.getText());
         usr.setFotografia(null);
         return usr;
     }
     private void setInfoViewFromUsr(Usuario usr){
         this.txtApellidoM.setText(usr.getApellidoM());
         this.txtApellidoP.setText(usr.getApellidoP());
-        this.txtCargo.setText(usr.getCargo());
-        this.txtContraseña.setText(usr.getContrasena());
-        this.txtCorreo.setText(usr.getCorreo());
+        this.txtCargoUsuario.setText(usr.getCargo());
+        this.txtContrasena.setText(usr.getContrasena());
+        this.txtCorreoUsuario.setText(usr.getCorreo());
         this.txtIdUsuario.setText(Integer.toString(usr.getIdUsuario()));
-        this.txtNombre.setText(usr.getNombre());
-        this.txtPrivilegios.setText(Integer.toString(usr.getprivilegios()));
-        this.txtTipo.setText(Integer.toString(usr.getTipo()));
+        this.txtNombreUsuario.setText(usr.getNombre());
+        this.txtPrivilegiosUsuario.setText(Integer.toString(usr.getprivilegios()));
+        this.txtTipoUsuario.setText(Integer.toString(usr.getTipo()));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnActualizarUsuario;
+    private javax.swing.JButton btnAgregarUsuario;
+    private javax.swing.JButton btnBuscarUsuario;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -476,15 +476,15 @@ public class Usuarios extends javax.swing.JApplet {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableUsuarios;
     private javax.swing.JTextField txtApellidoM;
     private javax.swing.JTextField txtApellidoP;
-    private javax.swing.JTextField txtCargo;
-    private javax.swing.JTextField txtContraseña;
-    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtCargoUsuario;
+    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtCorreoUsuario;
     private javax.swing.JTextField txtIdUsuario;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrivilegios;
-    private javax.swing.JTextField txtTipo;
+    private javax.swing.JTextField txtNombreUsuario;
+    private javax.swing.JTextField txtPrivilegiosUsuario;
+    private javax.swing.JTextField txtTipoUsuario;
     // End of variables declaration//GEN-END:variables
 }
