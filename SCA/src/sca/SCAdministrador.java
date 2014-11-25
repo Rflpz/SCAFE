@@ -28,6 +28,7 @@ public class SCAdministrador extends javax.swing.JApplet {
     private  MateriasController matController = new MateriasController();
     private Materia mat = new Materia();
     private  UsuariosController usrController = new UsuariosController();
+    private HMPController hmp = new HMPController();
     /**
      * Initializes the applet SCAdministrador
      */
@@ -56,7 +57,8 @@ public class SCAdministrador extends javax.swing.JApplet {
         }
         //</editor-fold>
         
-        
+        hmp.LoadList();
+        System.out.println("Entra");
         /* Create and display the applet */
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
@@ -64,6 +66,7 @@ public class SCAdministrador extends javax.swing.JApplet {
                     initComponents();
                     try {
                         loadDataToTableAula();
+                        addItemsComoboxAulas();
                     } catch (SQLException ex) {
                         Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -174,6 +177,24 @@ public class SCAdministrador extends javax.swing.JApplet {
         txtCorreoUsuario = new javax.swing.JTextField();
         txtPrivilegiosUsuario = new javax.swing.JTextField();
         paneHMP = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTableHMP = new javax.swing.JTable();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        cmbDiaHMP = new javax.swing.JComboBox();
+        cmbAulaHMP = new javax.swing.JComboBox();
+        cmbHorarioHMP = new javax.swing.JComboBox();
+        cmbGrupoHMP = new javax.swing.JComboBox();
+        cmbMateriaHMP = new javax.swing.JComboBox();
+        cmbUsuarioHMP = new javax.swing.JComboBox();
+        txtHMP = new javax.swing.JTextField();
+        btnAgregarHMP = new javax.swing.JButton();
+        btnEliminarHMP = new javax.swing.JButton();
 
         javax.swing.GroupLayout aulas1Layout = new javax.swing.GroupLayout(aulas1.getContentPane());
         aulas1.getContentPane().setLayout(aulas1Layout);
@@ -964,16 +985,142 @@ public class SCAdministrador extends javax.swing.JApplet {
 
         tabPane.addTab("Usuarios", paneUsuarios);
 
+        jTableHMP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTableHMP);
+
+        jLabel26.setText("idHMP");
+
+        jLabel27.setText("IdUsuario");
+
+        jLabel28.setText("idMateria");
+
+        jLabel29.setText("idAula");
+
+        jLabel30.setText("idGrupo");
+
+        jLabel31.setText("idHorario");
+
+        jLabel32.setText("dia");
+
+        cmbDiaHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbAulaHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbHorarioHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbGrupoHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbMateriaHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbUsuarioHMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnAgregarHMP.setText("Agregar");
+        btnAgregarHMP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarHMPMouseClicked(evt);
+            }
+        });
+
+        btnEliminarHMP.setLabel("Eliminar");
+        btnEliminarHMP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarHMPMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout paneHMPLayout = new javax.swing.GroupLayout(paneHMP);
         paneHMP.setLayout(paneHMPLayout);
         paneHMPLayout.setHorizontalGroup(
             paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1015, Short.MAX_VALUE)
+            .addGroup(paneHMPLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneHMPLayout.createSequentialGroup()
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbAulaHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbDiaHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbGrupoHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbHorarioHMP, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbUsuarioHMP, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbMateriaHMP, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(paneHMPLayout.createSequentialGroup()
+                        .addComponent(btnAgregarHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
+
+        paneHMPLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbAulaHMP, cmbDiaHMP, cmbGrupoHMP, cmbHorarioHMP, cmbMateriaHMP, cmbUsuarioHMP, txtHMP});
+
+        paneHMPLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel26, jLabel27, jLabel28, jLabel29, jLabel30, jLabel31, jLabel32});
+
         paneHMPLayout.setVerticalGroup(
             paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGroup(paneHMPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6)
+                    .addGroup(paneHMPLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtHMP)
+                            .addComponent(jLabel26))
+                        .addGap(7, 7, 7)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbUsuarioHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jLabel27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbMateriaHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbHorarioHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbGrupoHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(jLabel30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbAulaHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(jLabel29))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbDiaHMP, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                            .addComponent(jLabel32))
+                        .addGap(33, 33, 33)
+                        .addGroup(paneHMPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAgregarHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarHMP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(222, 222, 222)))
+                .addContainerGap())
         );
+
+        paneHMPLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel26, jLabel27, jLabel28, jLabel29, jLabel30, jLabel31, jLabel32});
 
         tabPane.addTab("HMP", paneHMP);
 
@@ -998,6 +1145,7 @@ public class SCAdministrador extends javax.swing.JApplet {
                 } catch (SQLException ex) {
                     Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                addItemsComoboxAulas();
                 break;
             }
             case 1:{
@@ -1006,7 +1154,7 @@ public class SCAdministrador extends javax.swing.JApplet {
             } catch (SQLException ex) {
                 Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            addItemsComobox();
+            addItemsComoboxGrupos();
                break; 
             }
             case 2:{
@@ -1033,6 +1181,15 @@ public class SCAdministrador extends javax.swing.JApplet {
             }
                 break;
             }
+            case 5:{
+            try {
+                loadDataToTableHMP();
+            } catch (SQLException ex) {
+                Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            loadDataToComboboxHMP();
+            break;
+            }
             default:{
                 try {
                     loadDataToTableAula();
@@ -1043,7 +1200,14 @@ public class SCAdministrador extends javax.swing.JApplet {
             }
         }
     }//GEN-LAST:event_tabPaneMouseClicked
-private void addItemsComobox(){
+private void addItemsComoboxAulas(){
+        this.cmbTipo.removeAllItems();
+        this.cmbTipo.addItem("AUDITORIO");
+        this.cmbTipo.addItem("SALON");
+        this.cmbTipo.addItem("LABORATORIO");
+    }
+    private void addItemsComoboxGrupos(){
+    System.out.println("Entra cmb");
         this.cmbCarrera.removeAllItems();
         this.cmbCarrera.addItem("INGENIERIA DE SOFTWARE");
         this.cmbCarrera.addItem("INGENIERIA EN TELEMATICA");
@@ -1126,6 +1290,30 @@ private void loadDataToTableHour()throws SQLException{
     int col = rsMeta.getColumnCount();
     DefaultTableModel modeloTabla = new DefaultTableModel();
     this.hTable.setModel(modeloTabla);
+    
+    for(int x = 1; x < col+1; x++){
+        modeloTabla.addColumn(rsMeta.getColumnLabel(x));
+    }
+    
+    while(rs.next()){
+        Object[] fila = new Object[col];
+        
+        for(int y = 0; y < col; y++){
+            fila[y] = rs.getObject(y+1);
+        }
+        modeloTabla.addRow(fila);
+    }
+}
+private void loadDataToTableHMP()throws SQLException{
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SCA", "root", "");
+    Statement stm = con.createStatement();  
+    String query = "SELECT * FROM HMP";
+    ResultSet rs = stm.executeQuery(query);
+    ResultSetMetaData rsMeta = rs.getMetaData();
+    
+    int col = rsMeta.getColumnCount();
+    DefaultTableModel modeloTabla = new DefaultTableModel();
+    this.jTableHMP.setModel(modeloTabla);
     
     for(int x = 1; x < col+1; x++){
         modeloTabla.addColumn(rsMeta.getColumnLabel(x));
@@ -1398,6 +1586,56 @@ private void loadDataToTableUser()throws SQLException{
         catch(SQLException e){
         }
     }//GEN-LAST:event_btnAgregarMouseClicked
+
+    private void btnAgregarHMPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarHMPMouseClicked
+        HMP h = new HMP();
+        h.setIdAula(Integer.parseInt(String.valueOf(this.cmbAulaHMP.getSelectedItem())));
+        h.setIdGrupo(Integer.parseInt(String.valueOf(this.cmbGrupoHMP.getSelectedItem())));
+        h.setIdHorario(Integer.parseInt(String.valueOf(this.cmbHorarioHMP.getSelectedItem())));
+        h.setIdMateria(Integer.parseInt(String.valueOf(this.cmbMateriaHMP.getSelectedItem())));
+        h.setIdUsuario(Integer.parseInt(String.valueOf(this.cmbUsuarioHMP.getSelectedItem())));
+        switch(String.valueOf(this.cmbDiaHMP.getSelectedItem())){
+            case "LUNES":{
+                h.setDia(1);
+                break;
+            }
+            case "MARTES":{
+                h.setDia(2);
+                break;
+            }
+            case "MIERCOLES":{
+                h.setDia(3);
+                break;
+            }
+            case "JUEVES":{
+                h.setDia(4);
+                break;
+            }
+            case "VIERNES":{
+                h.setDia(5);
+                break;
+            }
+            default:
+                break;
+        }
+        this.hmp.addHMP(h);
+        try {
+            loadDataToTableHMP();
+        } catch (SQLException ex) {
+            Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregarHMPMouseClicked
+
+    private void btnEliminarHMPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarHMPMouseClicked
+        HMP h = new HMP();
+        h.setIdHMP(Integer.parseInt(this.txtHMP.getText()));
+        this.hmp.delHMP(h);
+        try {
+            loadDataToTableHMP();
+        } catch (SQLException ex) {
+            Logger.getLogger(SCAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarHMPMouseClicked
     private boolean validarTxtEdicion(){
         boolean status = true;
         if(this.txtIdMateriaEditar == null){
@@ -1583,6 +1821,36 @@ private boolean validarTxtAgregar(){
             }
         return status;
     }
+private void loadDataToComboboxHMP(){
+    this.cmbAulaHMP.removeAllItems();
+    this.cmbDiaHMP.removeAllItems();
+    this.cmbMateriaHMP.removeAllItems();
+    this.cmbHorarioHMP.removeAllItems();
+    this.cmbGrupoHMP.removeAllItems();
+    this.cmbUsuarioHMP.removeAllItems();
+    
+    for(String n: this.hmp.listIdAula){
+        this.cmbAulaHMP.addItem(n);
+    }
+    for(String n: this.hmp.listIdGrupo){
+        this.cmbGrupoHMP.addItem(n);
+    }
+    for(String n: this.hmp.listIdHorario){
+        this.cmbHorarioHMP.addItem(n);
+    }
+    for(String n: this.hmp.listIdMateria){
+        this.cmbMateriaHMP.addItem(n);
+    }
+    for(String n: this.hmp.listIdUsuario){
+        this.cmbUsuarioHMP.addItem(n);
+    }
+    this.cmbDiaHMP.addItem("LUNES");
+    this.cmbDiaHMP.addItem("MARTES");
+    this.cmbDiaHMP.addItem("MIERCOLES");
+    this.cmbDiaHMP.addItem("JUEVES");
+    this.cmbDiaHMP.addItem("VIERNES");
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.Aulas aulas1;
     private view.Aulas aulas2;
@@ -1592,6 +1860,7 @@ private boolean validarTxtAgregar(){
     private javax.swing.JButton btnActualizarUsuario;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarGrupo;
+    private javax.swing.JButton btnAgregarHMP;
     private javax.swing.JButton btnAgregarHorario;
     private javax.swing.JButton btnAgregarMateria;
     private javax.swing.JButton btnAgregarUsuario;
@@ -1601,16 +1870,23 @@ private boolean validarTxtAgregar(){
     private javax.swing.JButton btnBuscarUsuario;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarGrupo;
+    private javax.swing.JButton btnEliminarHMP;
     private javax.swing.JButton btnEliminarHorario;
     private javax.swing.JButton btnEliminarMateria;
     private javax.swing.JButton btnEliminarUsuario;
+    private javax.swing.JComboBox cmbAulaHMP;
     private javax.swing.JComboBox cmbCarrera;
+    private javax.swing.JComboBox cmbDiaHMP;
     private javax.swing.JComboBox cmbGrado;
+    private javax.swing.JComboBox cmbGrupoHMP;
     private javax.swing.JComboBox cmbHoraInicio;
     private javax.swing.JComboBox cmbHoraTermino;
+    private javax.swing.JComboBox cmbHorarioHMP;
+    private javax.swing.JComboBox cmbMateriaHMP;
     private javax.swing.JComboBox cmbMinutoInicio;
     private javax.swing.JComboBox cmbMinutoTermino;
     private javax.swing.JComboBox cmbTipo;
+    private javax.swing.JComboBox cmbUsuarioHMP;
     private javax.swing.JTable hTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1630,7 +1906,14 @@ private boolean validarTxtAgregar(){
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1645,9 +1928,11 @@ private boolean validarTxtAgregar(){
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableHMP;
     private javax.swing.JTable jTableMaterias;
     private javax.swing.JTable jTableUsuarios;
     private javax.swing.JPanel paneAulas;
@@ -1662,6 +1947,7 @@ private boolean validarTxtAgregar(){
     private javax.swing.JTextField txtCargoUsuario;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreoUsuario;
+    private javax.swing.JTextField txtHMP;
     private javax.swing.JTextField txtIdAula;
     private javax.swing.JTextField txtIdGrupo;
     private javax.swing.JTextField txtIdHorario;
