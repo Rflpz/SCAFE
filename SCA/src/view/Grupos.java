@@ -101,9 +101,17 @@ public class Grupos extends javax.swing.JApplet {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "idGrupo", "Nombre", "Grado", "Carrera"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
@@ -236,7 +244,7 @@ private void loadDataToTable()throws SQLException{
         }
         modeloTabla.addRow(fila);
     }
-    }
+}
 
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
         Grupo grp = new Grupo();
