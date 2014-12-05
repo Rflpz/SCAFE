@@ -1596,23 +1596,23 @@ private void loadDataToTableUser()throws SQLException{
         h.setIdUsuario(Integer.parseInt(String.valueOf(this.cmbUsuarioHMP.getSelectedItem())));
         switch(String.valueOf(this.cmbDiaHMP.getSelectedItem())){
             case "LUNES":{
-                h.setDia(1);
-                break;
-            }
-            case "MARTES":{
                 h.setDia(2);
                 break;
             }
-            case "MIERCOLES":{
+            case "MARTES":{
                 h.setDia(3);
                 break;
             }
-            case "JUEVES":{
+            case "MIERCOLES":{
                 h.setDia(4);
                 break;
             }
-            case "VIERNES":{
+            case "JUEVES":{
                 h.setDia(5);
+                break;
+            }
+            case "VIERNES":{
+                h.setDia(6);
                 break;
             }
             default:

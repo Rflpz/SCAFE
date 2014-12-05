@@ -18,12 +18,12 @@ public class SCA {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException{
-        SCAdministrador theApplet = new SCAdministrador();
+        SCAUsuario theApplet = new SCAUsuario();
         theApplet.init();   // invoke the applet's init() method
          theApplet.start();  // starts the applet
  
          // Create a window (JFrame) and make applet the content pane.
-          javax.swing.JFrame window = new javax.swing.JFrame("Panel de administracion");
+          javax.swing.JFrame window = new javax.swing.JFrame("SCAdministrador");
           window.setContentPane(theApplet);
           window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
           window.pack();          
